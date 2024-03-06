@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Atiks Front Docs</title>
+
+	<!-- CSS -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+		crossorigin="" />
+	<link type="text/css" rel="stylesheet" href="Content/materialize/materialize.min.css" media="screen,projection" />
+	<link type="text/css" rel="stylesheet" href="Content/site.css" media="screen,projection" />
+
+	<!-- JS -->
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+		crossorigin=""></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="Scripts/materialize/materialize.min.js"></script>
+
+	<script type="text/javascript" src="Scripts/app.js"></script>
+	<script type="text/javascript" src="Scripts/mapHelper.js"></script>
+</head>
+
+<body onload="MapHelper.initMap()">
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">
+				<img src="Content/images/logo/atiks-logo.png" width="64px;" />
+			</a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#modalObjetoClass" class="modal-trigger"><i class="material-icons prefix">insert_drive_file</i></a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="row">
+		<div class="col s12 m12">
+			<div class="card">
+				<div class="card-content">
+					<p>* Clique nos campos, edite os dados e salve para gerar um JSON.</p>
+					<br /><br /><br />
+					<div class="row detalhes">
+						<form class="col s12 m12 l12">
+
+							<div class="input-field col s12 m2 l2">
+								<select id="select-operadora">
+									<option value="" disabled>Selecione a operadora</option>
+									<option value="Algar">Algar</option>
+									<option value="Claro">Claro</option>
+									<option value="Embratel">Embratel</option>
+									<option value="Oi">Oi</option>
+									<option value="Tim">Tim</option>
+									<option value="Vivo" selected>Vivo</option>
+								  </select>
+								  <label>Operadora</label>
+							</div>
+
+							<div class="input-field col s12 m3 l3">
+								<select id="select-cliente">
+									<option value="" disabled>Selecione o cliente</option>
+									<option value="07.967.085/0004-73 Agilfarma CTB" selected>07.967.085/0004-73 Agilfarma CTB</option>
+									<option value="07.967.085/0005-54 Agilfarma Distribuidora"> 07.967.085/0005-54 Agilfarma Distribuidora</option>
+									<option value="07.967.085/0002-01 Agilfarma FLP"> 07.967.085/0002-01 Agilfarma FLP</option>
+									<option value="07.967.085/0006-35 Agilfarma LDB"> 07.967.085/0006-35 Agilfarma LDB</option>
+									<option value="07.967.085/0001-20 Agilfarma POA"> 07.967.085/0001-20 Agilfarma POA</option>
+									<option value="11.260.846/0002-68 Anbioton BH"> 11.260.846/0002-68 Anbioton BH</option>
+									<option value="11.260.846/0001-87 Anbioton CD"> 11.260.846/0001-87 Anbioton CD</option>
+									<option value="11.260.846/0004-20 Anbioton PE"> 11.260.846/0004-20 Anbioton PE</option>
+									<option value="11.260.846/0003-49 Anbioton SP"> 11.260.846/0003-49 Anbioton SP</option>
+									<option value="02.626.340/0001-58 Artmedica Eusebio"> 02.626.340/0001-58 Artmedica Eusebio</option>
+									<option value="02.626.340/0002-39 Artmedica Juazeito"> 02.626.340/0002-39 Artmedica Juazeito</option>
+									<option value="06.371.354/0001-29 ATMA SSA"> 06.371.354/0001-29 ATMA SSA</option>
+									<option value="02.649.956/0001-44 Biodente"> 02.649.956/0001-44 Biodente</option>
+									<option value="18.269.125/0002-68 BioHosp BH"> 18.269.125/0002-68 BioHosp BH</option>
+									<option value="18.269.125/0001-87 BioHosp CTG"> 18.269.125/0001-87 BioHosp CTG</option>
+									<option value="18.269.125/0003-49 BioHosp RJ"> 18.269.125/0003-49 BioHosp RJ</option>
+									<option value="11.051.186/0001-24 CDM BA"> 11.051.186/0001-24 CDM BA</option>
+									<option value="07.812.105/0001-94 CDM CE"> 07.812.105/0001-94 CDM CE</option>
+									<option value="21.895.020/0001-48 CDM PA"> 21.895.020/0001-48 CDM PA</option>
+									<option value="08.719.794/0001-50 CDM PE"> 08.719.794/0001-50 CDM PE</option>
+									<option value="19.936.557/0001-67 CIENCIA MATRIZ"> 19.936.557/0001-67 CIENCIA MATRIZ</option>
+									<option value="11.545.015/0001-51 Commed DF"> 11.545.015/0001-51 Commed DF</option>
+									<option value="02.643.718/0001-21 Commed SP"> 02.643.718/0001-21 Commed SP</option>
+									<option value="35.425.172/0001-91 CONSOLIDADORA"> 35.425.172/0001-91 CONSOLIDADORA</option>
+									<option value="06.073.848/0001-27 CRISTAL MATRIZ"> 06.073.848/0001-27 CRISTAL MATRIZ</option>
+									<option value="11.059.197/0001-50 Delivery ASA"> 11.059.197/0001-50 Delivery ASA</option>
+									<option value="11.059.197/0005-84 Delivery CGB"> 11.059.197/0005-84 Delivery CGB</option>
+									<option value="11.059.197/0003-12 Delivery GYN"> 11.059.197/0003-12 Delivery GYN</option>
+									<option value="11.059.197/0004-01 Delivery MRT"> 11.059.197/0004-01 Delivery MRT</option>
+									<option value="01.057.428/0003-03 Descarpack AM"> 01.057.428/0003-03 Descarpack AM</option>
+									<option value="01.057.428/0002-14 Descarpack SC"> 01.057.428/0002-14 Descarpack SC</option>
+									<option value="01.057.428/0001-33 Descarpack SP"> 01.057.428/0001-33 Descarpack SP</option>
+									<option value="20.128.827/0001-92 DRS Courier"> 20.128.827/0001-92 DRS Courier</option>
+									<option value="29.091.052/0001-00 DRS Holding"> 29.091.052/0001-00 DRS Holding</option>
+									<option value="30.232.580/0001-03 DRS Import"> 30.232.580/0001-03 DRS Import</option>
+									<option value="00.804.488/0002-90 DRS Warehouse 09"> 00.804.488/0002-90 DRS Warehouse 09</option>
+									<option value="00.804.488/0001-00 DRS Warehouse 40"> 00.804.488/0001-00 DRS Warehouse 40</option>
+									<option value="04.027.894/0008-30 Dupatri Betim"> 04.027.894/0008-30 Dupatri Betim</option>
+									<option value="04.027.894/0003-26 Dupatri Catalão"> 04.027.894/0003-26 Dupatri Catalão</option>
+									<option value="04.027.894/0001-64 Dupatri Santos"> 04.027.894/0001-64 Dupatri Santos</option>
+									<option value="04.027.894/0007-50 Dupatri Sumare"> 04.027.894/0007-50 Dupatri Sumare</option>
+									<option value="09.053.134/0001-45 ELFA BSB"> 09.053.134/0001-45 ELFA BSB</option>
+									<option value="09.053.134/0011-17 ELFA DCT"> 09.053.134/0011-17 ELFA DCT</option>
+									<option value="07.674.753/0001-21 ELFA FOR"> 07.674.753/0001-21 ELFA FOR</option>
+									<option value="09.053.134/0005-79 ELFA MED BA"> 09.053.134/0005-79 ELFA MED BA</option>
+									<option value="09.053.134/0003-07 ELFA MED CE"> 09.053.134/0003-07 ELFA MED CE</option>
+									<option value="09.053.134/0009-00 ELFA MED CEARA"> 09.053.134/0009-00 ELFA MED CEARA</option>
+									<option value="09.053.134/0007-30 ELFA MED ITAIM"> 09.053.134/0007-30 ELFA MED ITAIM</option>
+									<option value="09.053.134/0002-26 ELFA MED JP"> 09.053.134/0002-26 ELFA MED JP</option>
+									<option value="09.053.134/0006-50 ELFA MED SC"> 09.053.134/0006-50 ELFA MED SC</option>
+									<option value="09.053.134/0004-98 ELFA MED SP"> 09.053.134/0004-98 ELFA MED SP</option>
+									<option value="19.794.232/0001-97 ELFA PARTICIPAC"> 19.794.232/0001-97 ELFA PARTICIPAC</option>
+									<option value="85.121.986/0004-53 Fenergy DF"> 85.121.986/0004-53 Fenergy DF</option>
+									<option value="85.121.986/0003-72 Fenergy RS"> 85.121.986/0003-72 Fenergy RS</option>
+									<option value="85.121.986/0001-00 Fenergy SC"> 85.121.986/0001-00 Fenergy SC</option>
+									<option value="79.250.676/0001-93 JAW MATRIZ"> 79.250.676/0001-93 JAW MATRIZ</option>
+									<option value="79.250.676/0002-74 JAW PR"> 79.250.676/0002-74 JAW PR</option>
+									<option value="79.250.676/0003-55 JAW RS"> 79.250.676/0003-55 JAW RS</option>
+									<option value="05.312.941/0001-84 Kaumam"> 05.312.941/0001-84 Kaumam</option>
+									<option value="09.613.374/0002-38 Majela Med CE ADM"> 09.613.374/0002-38 Majela Med CE ADM</option>
+									<option value="09.613.374/0003-19 Majela Med CE CD"> 09.613.374/0003-19 Majela Med CE CD</option>
+									<option value="09.613.374/0001-57 Majela Med PB"> 09.613.374/0001-57 Majela Med PB</option>
+									<option value="25.211.499/0003-79 Medcom DF"> 25.211.499/0003-79 Medcom DF</option>
+									<option value="25.211.499/0001-07 Medcom GO"> 25.211.499/0001-07 Medcom GO</option>
+									<option value="25.211.499/0002-98 Medcom MT"> 25.211.499/0002-98 Medcom MT</option>
+									<option value="11.563.145/0001-17 Mostaert"> 11.563.145/0001-17 Mostaert</option>
+									<option value="52.202.744/0009-40 Nacional Contagem 01"> 52.202.744/0009-40 Nacional Contagem 01</option>
+									<option value="52.202.744/0010-83 Nacional Contagem 02"> 52.202.744/0010-83 Nacional Contagem 02</option>
+									<option value="52.202.744/0008-69 Nacional Macae"> 52.202.744/0008-69 Nacional Macae</option>
+									<option value="52.202.744/0001-92 Nacional Ribeirao"> 52.202.744/0001-92 Nacional Ribeirao</option>
+									<option value="52.202.744/0003-54 Nacional Rio Preto"> 52.202.744/0003-54 Nacional Rio Preto</option>
+									<option value="52.202.744/0005-16 Nacional Santana 01"> 52.202.744/0005-16 Nacional Santana 01</option>
+									<option value="52.202.744/0006-05 Nacional Santana 02"> 52.202.744/0006-05 Nacional Santana 02</option>
+									<option value="52.202.744/0007-88 Nacional Santana 03"> 52.202.744/0007-88 Nacional Santana 03</option>
+									<option value="12.671.880/0001-07 NatBio"> 12.671.880/0001-07 NatBio</option>
+									<option value="10.630.293/0002-25 OncoRio GO"> 10.630.293/0002-25 OncoRio GO</option>
+									<option value="10.630.293/0003-06 OncoRio PR"> 10.630.293/0003-06 OncoRio PR</option>
+									<option value="10.630.293/0001-44 OncoRio SP"> 10.630.293/0001-44 OncoRio SP</option>
+									<option value="10.515.224/0002-70 PRESC. CENTRO"> 10.515.224/0002-70 PRESC. CENTRO</option>
+									<option value="10.515.224/0007-85 PRESCRITA BH"> 10.515.224/0007-85 PRESCRITA BH</option>
+									<option value="10.515.224/0006-02 PRESCRITA CABEDELO"> 10.515.224/0006-02 PRESCRITA CABEDELO</option>
+									<option value="10.515.224/0004-32 PRESCRITA NATAL"> 10.515.224/0004-32 PRESCRITA NATAL</option>
+									<option value="10.515.224/0001-90 PRESCRITA PRAIA"> 10.515.224/0001-90 PRESCRITA PRAIA</option>
+									<option value="10.515.224/0005-13 PRESCRITA SP"> 10.515.224/0005-13 PRESCRITA SP</option>
+									<option value="06.371.354/0002-00 PRESCRITA SSA"> 06.371.354/0002-00 PRESCRITA SSA</option>
+									<option value="10.515.224/0003-51 PRESCRITA SSA"> 10.515.224/0003-51 PRESCRITA SSA</option>
+									<option value="14.722.938/0001-20 Procifar"> 14.722.938/0001-20 Procifar</option>
+									<option value="23.646.746/0001-72 SAN LOG"> 23.646.746/0001-72 SAN LOG</option>
+									<option value="11.957.717/0001-42 Suportemed"> 11.957.717/0001-42 Suportemed</option>
+									<option value="00.814.559/0011-27 Surya Curitiba"> 00.814.559/0011-27 Surya Curitiba</option>
+									<option value="00.814.559/0010-46 Surya Lounge"> 00.814.559/0010-46 Surya Lounge</option>
+									<option value="00.814.559/0001-55 Surya Matriz"> 00.814.559/0001-55 Surya Matriz</option>
+									<option value="24.935.218/0002-87 TLS Log PE"> 24.935.218/0002-87 TLS Log PE</option>
+									<option value="24.935.218/0001-04 TLS Log SP"> 24.935.218/0001-04 TLS Log SP</option>
+									<option value="20.412.651/0002-87 Vital BA"> 20.412.651/0002-87 Vital BA</option>
+									<option value="20.412.651/0003-68 Vital ES"> 20.412.651/0003-68 Vital ES</option>
+									<option value="20.412.651/0001-04 Vital Matriz"> 20.412.651/0001-04 Vital Matriz</option>									
+								  </select>
+								  <label>Cliente</label>
+							</div>
+
+							<div class="input-field col s12 m3 l3">
+								<select id="select-servico">
+									<option value="" disabled>Selecione o tipo de serviço</option>
+									<option value="Móvel" selected>Móvel</option>
+									<option value="Fixo">Fixo</option>
+									<option value="Internet">Internet</option>
+									<option value="Voz">Voz</option>	
+								</select>
+								<label>Serviço</label>
+							</div>
+
+							<div class="input-field col s12 m5 l5">
+								<i class="material-icons prefix purple-text">http</i>
+								<input id="input-url" value="vivo.com.br" type="text">
+								<label>URL</label>
+							</div>
+
+							<div class="input-field col s12 m2 l2">
+								<i class="material-icons prefix purple-text">person</i>
+								<input id="input-login" value="vivo@vivo" type="text">
+								<label>Login</label>
+							</div>
+
+							<div class="input-field col s12 m2 l2">
+								<i class="material-icons prefix purple-text">https</i>
+								<input id="input-senha" value="123456" type="password">
+								<label>Senha</label>
+							</div>
+							
+							<div class="input-field col s12 m2 l2">
+								<i class="material-icons prefix purple-text">info</i>
+								<input id="input-conta" value="0045832457" type="text">
+								<label>Conta</label>
+							</div>
+						</form>
+					</div>
+					<button class="btn" onclick="Salvar()">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!---------- Modal Structure -------------->
+	<div id="modalUploadArquivo" class="modal">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title">JSON</span>
+							<div class="row">
+								<div class="col s12 m12 l12">
+									<blockquote>
+										{
+											<br/>"OperadoraId": "<span class="json-value" id="select-operadora-modal"></span>",
+		
+											<br/>"ClienteId": "<span class="json-value" id="select-cliente-modal"></span>",
+		
+											<br/>"ServicoId": "<span class="json-value" id="select-servico-modal"></span>",	
+
+											<br/>"OperadoraClienteURL": "<span class="json-value" id="input-url-modal"></span>",
+		
+											<br/>"OperadoraClienteLogin": "<span class="json-value" id="input-login-modal"></span>",
+		
+											<br/>"OperadoraClienteSenha": "<span class="json-value" id="input-senha-modal"></span>",
+
+											<br/>"ContaNumero": "<span class="json-value" id="input-conta-modal"></span>",
+											<br/>
+										}			
+									</blockquote>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<a href="#!" class="modal-close waves-effect waves-green btn-flat">fechar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
